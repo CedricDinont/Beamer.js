@@ -1,0 +1,43 @@
+.error-message-hidden {
+	display: none;
+}
+
+.error-message-display {
+	display: block;
+}
+
+#error-message {
+	color: red;
+}
+
+#loading-mask {
+	background-color: white;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 20000;
+}
+
+#loading {
+	height: auto;
+	position: absolute;
+	left: 47%;
+	top: 40%;
+	padding: 2px;
+	font: bold 13px Helvetica, Arial, sans-serif;
+	z-index: 20001;
+}
+
+#loading .loading-indicator {
+	background: white;
+	color: blue;
+	height: auto;
+	margin: 0;
+	padding: 0px;
+}
+
+#loading-message {
+	text-align: center;
+}
