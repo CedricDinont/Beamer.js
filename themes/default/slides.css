@@ -115,11 +115,23 @@ html {
 }
 
 .algoview-animation-comment {
-	/*background: red; */
 	display: block;
 	height: 20%;
 	top: 80%;
 	width: 100%;
+	position: relative;
+	display: -webkit-box;
+	-webkit-box-orient:	horizontal;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+}
+
+.right-column-algoview-animation-comment {
+	display: block;
+	height: 100%;
+	width: 50%;
+	left: 50%;
+	top: 0px;
 	position: relative;
 	display: -webkit-box;
 	-webkit-box-orient:	horizontal;
