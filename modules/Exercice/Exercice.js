@@ -24,6 +24,14 @@ function ExerciceTagHandler() {
 		$(title).contents().each(function(index) {
 			$(exerciceTitle).append(presentation.parseTag(this));
 		}); 
+		var bouton = $(document.createElement("input"));
+		$(bouton).attr("type","checkbox");
+		$(bouton).attr("name","toggleAnswers");
+		$(bouton).attr("value","Afficher réponse");
+		$(bouton).attr("onClick","answerDisplaySingleton.showAnswers(this)");
+		exerciceTitle.append(" ( ");
+		exerciceTitle.append(bouton);
+		exerciceTitle.append(" Afficher réponses)");
 		exercice.append(exerciceTitle);
 
 		var exerciceContent = $(document.createElement("div"));
@@ -42,6 +50,10 @@ function AnswerTagHandler() {
 	this.parseTag = function(tag, presentation) {
 		var element = $(document.createElement("div"));
 		$(element).attr($(tag).getAttributes());
+		$(element).attr("id","answer");
+		$(element).css("visibility","hidden");
+		$(element).css("display","none");
+		$(element).css("margin-left","20px");
 
 		$(tag).contents().each(function(index) {
 			$(element).append(presentation.parseTag(this));
@@ -50,3 +62,20 @@ function AnswerTagHandler() {
 		return element;
 	}
 }
+
+var AnswerDisplay = function(){
+	this.showAnswers = function(elem){
+		$(elem).parent().parent().find("div#answer").each(function(){
+			if($(this).css("visibility") === "hidden"){
+				$(this).css("visibility","visible");
+				$(this).css("display","inline");
+			}else{
+				$(this).css("visibility","hidden");
+				$(this).css("display","none");
+			}
+			
+		});
+	}
+}
+
+var answerDisplaySingleton = new AnswerDisplay();
