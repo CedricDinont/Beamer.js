@@ -1,3 +1,4 @@
+
 var XmlPresentationParser = function() {
 	this.presentation;
 	this.presentationData;
@@ -35,10 +36,7 @@ XmlPresentationParser.prototype.parse = function(presentation, presentationDataT
 	this.presentationData = domParser.parseFromString(presentationDataText, "application/xml");  
 	
 	console.log("Parsed XML");
-	
-	console.log("Adding head");
-	this.appendSection('head');
-	
+
 	console.log("Loading modules");
 	this.loadModules();
 }
@@ -53,6 +51,11 @@ function waitForFunction(functionName) {
 }
 
 XmlPresentationParser.prototype.parseContent = function() {
+	this.presentation.callModulesHandler("beforeParsing");
+
+	console.log("Adding head");
+	this.appendSection('head');
+
 	this.loadTheme();
 	
 	this.presentation.callModulesHandler("beforeCreatingSlides");
