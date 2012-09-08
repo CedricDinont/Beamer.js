@@ -10,6 +10,7 @@ var TagHandlerManager = function() {
 		this.registerTagHandler("columns", new ColumnsTagHandler());
 		this.registerTagHandler("block", new BlockTagHandler());
 		this.registerTagHandler("iframe", new IFrameTagHandler());
+		this.registerTagHandler("img", new ImgTagHandler());
 	}
 
 	this.registerTagHandler = function(tagName, tagHandler) {
@@ -41,8 +42,14 @@ function DefaultTagHandler() {
 }
 
 function IFrameTagHandler() {
+	this.linkChecker = new LinkChecker();
+	
 	this.parseTag = function(tag, presentation) {
 		console.log("parsing iframe");
+		
+		this.linkChecker.checkLink(tag, "src", presentation);
+		this.linkChecker.checkLink(tag, "deferred-src", presentation);
+		
 		var element = $(document.createElement(tag.tagName));
 		$(element).attr($(tag).getAttributes());
 		// TODO: Recopier les noeuds enfants s'il y en a mais pas le document lié à l'iframe
@@ -172,6 +179,16 @@ function LinkTagHandler() {
 	
 	this.parseTag = function(tag, presentation) {
 		this.linkChecker.checkLink(tag, "href", presentation);
+		var html = presentation.parseHtml(tag);
+		return html;
+	}
+}
+
+function ImgTagHandler() {
+	this.linkChecker = new LinkChecker();
+	
+	this.parseTag = function(tag, presentation) {
+		this.linkChecker.checkLink(tag, "src", presentation);
 		var html = presentation.parseHtml(tag);
 		return html;
 	}
