@@ -41,8 +41,14 @@ function DefaultTagHandler() {
 }
 
 function IFrameTagHandler() {
+	this.linkChecker = new LinkChecker();
+	
 	this.parseTag = function(tag, presentation) {
 		console.log("parsing iframe");
+		
+		this.linkChecker.checkLink(tag, "src", presentation);
+		this.linkChecker.checkLink(tag, "deferred-src", presentation);
+		
 		var element = $(document.createElement(tag.tagName));
 		$(element).attr($(tag).getAttributes());
 		// TODO: Recopier les noeuds enfants s'il y en a mais pas le document lié à l'iframe
