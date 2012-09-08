@@ -10,6 +10,7 @@ var TagHandlerManager = function() {
 		this.registerTagHandler("columns", new ColumnsTagHandler());
 		this.registerTagHandler("block", new BlockTagHandler());
 		this.registerTagHandler("iframe", new IFrameTagHandler());
+		this.registerTagHandler("img", new ImgTagHandler());
 	}
 
 	this.registerTagHandler = function(tagName, tagHandler) {
@@ -178,6 +179,16 @@ function LinkTagHandler() {
 	
 	this.parseTag = function(tag, presentation) {
 		this.linkChecker.checkLink(tag, "href", presentation);
+		var html = presentation.parseHtml(tag);
+		return html;
+	}
+}
+
+function ImgTagHandler() {
+	this.linkChecker = new LinkChecker();
+	
+	this.parseTag = function(tag, presentation) {
+		this.linkChecker.checkLink(tag, "src", presentation);
 		var html = presentation.parseHtml(tag);
 		return html;
 	}
