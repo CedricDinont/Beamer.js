@@ -28,7 +28,9 @@ function ExerciceTagHandler() {
 		$(bouton).attr("type","checkbox");
 		$(bouton).attr("name","toggleAnswers");
 		$(bouton).attr("value","Afficher réponse");
-		$(bouton).attr("onClick","answerDisplaySingleton.showAnswers(this)");
+		$(bouton).click(function(){
+			answerDisplaySingleton.showAnswers($(bouton),presentation);
+		});
 		exerciceTitle.append(" ( ");
 		exerciceTitle.append(bouton);
 		exerciceTitle.append(" Afficher réponses)");
@@ -64,11 +66,12 @@ function AnswerTagHandler() {
 }
 
 var AnswerDisplay = function(){
-	this.showAnswers = function(elem){
+	this.showAnswers = function(elem,presentation){
 		$(elem).parent().parent().find("div#answer").each(function(){
 			if($(this).css("visibility") === "hidden"){
 				$(this).css("visibility","visible");
 				$(this).css("display","inline");
+				presentation.presentation.onResize();
 			}else{
 				$(this).css("visibility","hidden");
 				$(this).css("display","none");
