@@ -27,7 +27,7 @@ function ExerciceTagHandler() {
 		var bouton = $(document.createElement("input"));
 		$(bouton).attr("type","checkbox");
 		$(bouton).attr("name","toggleAnswers");
-		$(bouton).attr("value","Afficher réponse");
+		$(bouton).attr("value","Afficher les réponses");
 		$(bouton).click(function(){
 			answerDisplaySingleton.showAnswers($(bouton),presentation);
 		});
