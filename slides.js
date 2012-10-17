@@ -2,10 +2,11 @@
 // Utility classes
 //////////////////////////////////////
 
-var Slide = function(slideNumber, id, domElement, presentation) {
+var Slide = function(slideNumber, id, domElement, presentation, presentationElement) {
 	this.slideNumber = slideNumber;
 	this.id = id;
 	this.domElement = domElement;
+	this.presentationElement = presentationElement;
 	this.presentation = presentation;
 	
 	this.onShow = new Array(); 
