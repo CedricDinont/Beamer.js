@@ -156,7 +156,7 @@ XmlPresentationParser.prototype.createTitleSlide = function() {
 	}
 	document.title = windowTitle;
 	
-	var slide = new Slide(1, "presentation-title", $("#presentation-title"), this.presentation);
+	var slide = new Slide(1, "presentation-title", $("#presentation-title"), this.presentation, undefined); // TODO: Voir quel noeud XML fournir dans l'objet Slide
 	this.presentation.slides[1] = slide;
 }
 
@@ -171,7 +171,7 @@ XmlPresentationParser.prototype.createSlides = function() {
 		var slideId = $(this).attr('id');
 		console.log("Slide id", slideId);
 
-		var slide = new Slide(slideCounter, slideId, slideHtml, self.presentation);
+		var slide = new Slide(slideCounter, slideId, slideHtml, self.presentation, this);
 		var onShowAttribute = this.getAttribute("onshow");
 		if (onShowAttribute) {
 			slide.onShow.push(onShowAttribute);
