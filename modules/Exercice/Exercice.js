@@ -53,6 +53,7 @@ function AnswerTagHandler() {
 		var element = $(document.createElement("div"));
 		$(element).attr($(tag).getAttributes());
 		$(element).attr("id","answer");
+		$(element).attr("class","answer");
 		$(element).css("visibility","hidden");
 		$(element).css("display","none");
 
