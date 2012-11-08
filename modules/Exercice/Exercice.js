@@ -55,7 +55,6 @@ function AnswerTagHandler() {
 		$(element).attr("id","answer");
 		$(element).css("visibility","hidden");
 		$(element).css("display","none");
-		$(element).css("margin-left","20px");
 
 		$(tag).contents().each(function(index) {
 			$(element).append(presentation.parseTag(this));
