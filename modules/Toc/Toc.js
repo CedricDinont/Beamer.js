@@ -59,15 +59,20 @@ TocModule.prototype.updateCurrentSection = function() {
 		var oldCurrentTocSection = $('#table-of-contents-section-' + this.currentSectionNumber);
 		var oldCurrentTocSectionSubsections = $('#table-of-contents-section-' + this.currentSectionNumber + "-subsections");
 		oldCurrentTocSection.toggleClass('current-section');
+		oldCurrentTocSection.trigger('classChanged');
 		oldCurrentTocSectionSubsections.toggleClass('hidden-subsections');
 		oldCurrentTocSectionSubsections.toggleClass('current-subsections');
+		oldCurrentTocSectionSubsections.trigger('classChanged');
 		$('.current-subsection').toggleClass('current-subsection');
+		$('.current-subsection').trigger('classChanged');
 
 		// Update new current section
 		if (sectionNumber != 0) {
 			$('#table-of-contents-section-' + sectionNumber).toggleClass('current-section');
+			$('#table-of-contents-section-' + sectionNumber).trigger('classChanged');
 			$('#table-of-contents-section-' + sectionNumber + "-subsections").toggleClass('hidden-subsections');
 			$('#table-of-contents-section-' + sectionNumber + "-subsections").toggleClass('current-subsections');
+			$('#table-of-contents-section-' + sectionNumber + "-subsections").trigger('classChanged');
 		}
 	}
 
@@ -92,10 +97,12 @@ TocModule.prototype.updateCurrentSubsection = function() {
 	if (subsectionNumber != this.currentSubsectionNumber) {
 		// Update old current subsection
 		$('.current-subsection').toggleClass('current-subsection');
+		$('.current-subsection').trigger('classChanged');
 
 		// Update new current subsection		
 		if (subsectionNumber > 0) {
 			$('#table-of-contents-section-' + this.currentSectionNumber + '-subsection-' + subsectionNumber).toggleClass('current-subsection');
+			$('#table-of-contents-section-' + this.currentSectionNumber + '-subsection-' + subsectionNumber).trigger('classChanged');
 		}	
 	}
 
