@@ -166,7 +166,7 @@ XmlPresentationParser.prototype.createSlides = function() {
 
 	$('slide', this.presentationData).each(function(index) {
 		var slideHtml = self.parseTag(this);
-		$('#slides-container').append(slideHtml);
+		$('#slides-container').append(slideHtml).addClass("algoviewAnchor");
 		
 		var slideId = $(this).attr('id');
 		console.log("Slide id", slideId);

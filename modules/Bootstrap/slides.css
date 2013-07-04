@@ -2,9 +2,15 @@
 	display: block;
 }
 
+section a:link{
+	font-weight: inherit;
+	color: #b62224;
+}
+
 .section-with-title {
       font-family: inherit;
       font-size: inherit;
+      padding-top: 125px;
 }
 
 .section-without-title {
