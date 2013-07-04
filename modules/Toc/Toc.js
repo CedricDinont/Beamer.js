@@ -94,7 +94,7 @@ TocModule.prototype.updateCurrentSubsection = function() {
 	}
 
 	// If the current subsection changed...
-	if (subsectionNumber != this.currentSubsectionNumber) {
+	if (currentSection != this.currentSectionNumber || subsectionNumber != this.currentSubsectionNumber) {
 		// Update old current subsection
 		$('.current-subsection').toggleClass('current-subsection');
 		$('.current-subsection').trigger('classChanged');

@@ -12,6 +12,7 @@ function ExerciceTagHandler() {
 	this.parseTag = function(tag, presentation) {
 		var exercice = $(document.createElement("div"));
 		exercice.addClass("block");
+		exercice.attr("data-type","exercice");
 
 		var exerciceType = $(tag).attr("type");
 		if (exerciceType !== undefined) {
@@ -75,6 +76,7 @@ var AnswerDisplay = function(){
 			}else{
 				$(this).css("visibility","hidden");
 				$(this).css("display","none");
+				presentation.presentation.onResize();
 			}
 			
 		});
