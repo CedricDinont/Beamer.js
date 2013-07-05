@@ -33,7 +33,12 @@ BootstrapModule = function() {
 			node = $(node);
 			node.removeClass("power");
 			node.addClass("table table-striped table-bordered table-condensed table-hover");
+			node.css("margin-top","5px")
 		});
+	}
+
+	function buttons(){
+		$("input[type='button']").addClass("btn btn-mini");
 	}
 
 	this.afterCreatingSlides = function() {
@@ -168,6 +173,7 @@ BootstrapModule = function() {
 				var textAlign = title.css("text-align");
 				title.removeClass("slide-title");
 				title.html("<h1>"+text+"</h1>");
+				title.children("h1").css("line-height","0px");
 
 				var slideContent = node.children("div.horizontally-centered");
 				var sl = slideContent.children("div.slide-content");
@@ -239,7 +245,7 @@ BootstrapModule = function() {
 				});
 				var content = node.html();
 				node.replaceWith("<ul class=\"nav nav-pills\">"+content+"</ul>");
-				$("#table-of-contents ul").css("margin-bottom","5px");
+				$("#table-of-contents ul").css("margin-bottom","0px");
 			});
 	
 			$("#table-of-contents ul .current-subsections").each(function(clazz,node){
@@ -286,10 +292,13 @@ BootstrapModule = function() {
 		}
 
 		progressBar();
+
+		buttons();
 	}
 
 	this.onPresentationLoad = function() {
 		tables();
+		buttons();
 
 		console.log("bootstrap loaded");
 	};
