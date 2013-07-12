@@ -21,7 +21,7 @@ BootstrapModule = function() {
 		var slideContentElement = $("div[class='slide-content']", slideElement);
 
 		var slideContentHeight = slideContentElement.height();
-		var paddingTop = (((slideHeight - 0)- slideContentHeight) / 2);
+		var paddingTop = (((slideHeight - 0)- slideContentHeight) / 2)/2;
 		if (paddingTop < 0) {
 			paddingTop = 0;
 		}
