@@ -30,3 +30,8 @@ section a:link{
 .width-50-percent{
 	width: 75%;
 }
+
+li.current-subsection{
+	font-weight:bold;
+}
+

@@ -96,7 +96,7 @@ BootstrapModule = function() {
 		function exercices(){
 			$(".block[data-type='exercice']").each(function(clazz,node){
 				node = $(node);
-				node.removeClass("block").addClass("alert alert-block");
+				node.removeClass("block").addClass("alert alert-danger");
 
 				node.children(".block-title").each(function(clazz,node){
 					node = $(node);
