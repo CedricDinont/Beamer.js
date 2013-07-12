@@ -100,7 +100,7 @@ BootstrapModule = function() {
 
 				node.children(".block-title").each(function(clazz,node){
 					node = $(node);
-					var nnode = node.wrap("<div class=\"label label-warning\">");
+					var nnode = node.wrap("<div class=\"label label-important\">");
 					node.children().unwrap();
 				});
 
