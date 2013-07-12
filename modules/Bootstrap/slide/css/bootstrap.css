@@ -11,8 +11,8 @@
 .slide-content {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 30px;
-  line-height: 35px;
+  font-size: 25px;
+  line-height: 29px;
   color: #333333;
   background-color: #ffffff;
   /* Allow for input prepend/append in search forms */
@@ -49,7 +49,7 @@
 .slide-content .input-block-level {
   display: block;
   width: 100%;
-  min-height: 45px;
+  min-height: 39px;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
@@ -239,8 +239,8 @@
 .slide-content body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 30px;
-  line-height: 35px;
+  font-size: 25px;
+  line-height: 29px;
   color: #333333;
   background-color: #ffffff;
 }
@@ -423,7 +423,7 @@
   display: block;
   float: left;
   width: 100%;
-  min-height: 45px;
+  min-height: 39px;
   margin-left: 2.127659574468085%;
   *margin-left: 2.074468085106383%;
   -webkit-box-sizing: border-box;
@@ -664,14 +664,14 @@
 }
 
 .slide-content p {
-  margin: 0 0 17.5px;
+  margin: 0 0 14.5px;
 }
 
 .slide-content .lead {
-  margin-bottom: 35px;
-  font-size: 45px;
+  margin-bottom: 29px;
+  font-size: 37.5px;
   font-weight: 200;
-  line-height: 52.5px;
+  line-height: 43.5px;
 }
 
 .slide-content small {
@@ -753,10 +753,10 @@
 .slide-content h4,
 .slide-content h5,
 .slide-content h6 {
-  margin: 17.5px 0;
+  margin: 14.5px 0;
   font-family: inherit;
   font-weight: bold;
-  line-height: 35px;
+  line-height: 29px;
   color: #b62224;
   text-rendering: optimizelegibility;
 }
@@ -775,59 +775,59 @@
 .slide-content h1,
 .slide-content h2,
 .slide-content h3 {
-  line-height: 70px;
+  line-height: 58px;
 }
 
 .slide-content h1 {
-  font-size: 82.5px;
+  font-size: 68.75px;
 }
 
 .slide-content h2 {
-  font-size: 67.5px;
+  font-size: 56.25px;
 }
 
 .slide-content h3 {
-  font-size: 52.5px;
+  font-size: 43.75px;
 }
 
 .slide-content h4 {
-  font-size: 37.5px;
+  font-size: 31.25px;
 }
 
 .slide-content h5 {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .slide-content h6 {
-  font-size: 25.5px;
+  font-size: 21.25px;
 }
 
 .slide-content h1 small {
-  font-size: 52.5px;
+  font-size: 43.75px;
 }
 
 .slide-content h2 small {
-  font-size: 37.5px;
+  font-size: 31.25px;
 }
 
 .slide-content h3 small {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .slide-content h4 small {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .slide-content .page-header {
-  padding-bottom: 16.5px;
-  margin: 35px 0 52.5px;
+  padding-bottom: 13.5px;
+  margin: 29px 0 43.5px;
   border-bottom: 1px solid #eeeeee;
 }
 
 .slide-content ul,
 .slide-content ol {
   padding: 0;
-  margin: 0 0 17.5px 25px;
+  margin: 0 0 14.5px 25px;
 }
 
 .slide-content ul ul,
@@ -838,7 +838,7 @@
 }
 
 .slide-content li {
-  line-height: 35px;
+  line-height: 29px;
 }
 
 .slide-content ul.unstyled,
@@ -863,12 +863,12 @@
 }
 
 .slide-content dl {
-  margin-bottom: 35px;
+  margin-bottom: 29px;
 }
 
 .slide-content dt,
 .slide-content dd {
-  line-height: 35px;
+  line-height: 29px;
 }
 
 .slide-content dt {
@@ -876,7 +876,7 @@
 }
 
 .slide-content dd {
-  margin-left: 17.5px;
+  margin-left: 14.5px;
 }
 
 .slide-content .dl-horizontal {
@@ -909,7 +909,7 @@
 }
 
 .slide-content hr {
-  margin: 35px 0;
+  margin: 29px 0;
   border: 0;
   border-top: 1px solid #b62224;
   border-bottom: 1px solid #ffffff;
@@ -928,20 +928,20 @@
 
 .slide-content blockquote {
   padding: 0 0 0 15px;
-  margin: 0 0 35px;
+  margin: 0 0 29px;
   border-left: 5px solid #eeeeee;
 }
 
 .slide-content blockquote p {
   margin-bottom: 0;
-  font-size: 37.5px;
+  font-size: 31.25px;
   font-weight: 300;
   line-height: 1.25;
 }
 
 .slide-content blockquote small {
   display: block;
-  line-height: 35px;
+  line-height: 29px;
   color: #999999;
 }
 
@@ -979,16 +979,16 @@
 
 .slide-content address {
   display: block;
-  margin-bottom: 35px;
+  margin-bottom: 29px;
   font-style: normal;
-  line-height: 35px;
+  line-height: 29px;
 }
 
 .slide-content code,
 .slide-content pre {
   padding: 0 3px 2px;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-  font-size: 28px;
+  font-size: 23px;
   color: #333333;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
@@ -1005,10 +1005,10 @@
 
 .slide-content pre {
   display: block;
-  padding: 17px;
-  margin: 0 0 17.5px;
-  font-size: 29px;
-  line-height: 35px;
+  padding: 14px;
+  margin: 0 0 14.5px;
+  font-size: 24px;
+  line-height: 29px;
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
@@ -1022,7 +1022,7 @@
 }
 
 .slide-content pre.prettyprint {
-  margin-bottom: 35px;
+  margin-bottom: 29px;
 }
 
 .slide-content pre code {
@@ -1040,7 +1040,7 @@
 }
 
 .slide-content form {
-  margin: 0 0 35px;
+  margin: 0 0 29px;
 }
 
 .slide-content fieldset {
@@ -1053,16 +1053,16 @@
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 35px;
-  font-size: 45px;
-  line-height: 70px;
+  margin-bottom: 29px;
+  font-size: 37.5px;
+  line-height: 58px;
   color: #333333;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 }
 
 .slide-content legend small {
-  font-size: 26.25px;
+  font-size: 21.75px;
   color: #999999;
 }
 
@@ -1071,9 +1071,9 @@
 .slide-content button,
 .slide-content select,
 .slide-content textarea {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: normal;
-  line-height: 35px;
+  line-height: 29px;
 }
 
 .slide-content input,
@@ -1106,11 +1106,11 @@
 .slide-content input[type="color"],
 .slide-content .uneditable-input {
   display: inline-block;
-  height: 35px;
+  height: 29px;
   padding: 4px 6px;
-  margin-bottom: 17.5px;
-  font-size: 30px;
-  line-height: 35px;
+  margin-bottom: 14.5px;
+  font-size: 25px;
+  line-height: 29px;
   color: #555555;
   vertical-align: middle;
   -webkit-border-radius: 4px;
@@ -1201,13 +1201,13 @@
 
 .slide-content select,
 .slide-content input[type="file"] {
-  height: 45px;
+  height: 39px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
 
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
 
-  line-height: 45px;
+  line-height: 39px;
 }
 
 .slide-content select {
@@ -1268,7 +1268,7 @@
 
 .slide-content .radio,
 .slide-content .checkbox {
-  min-height: 35px;
+  min-height: 29px;
   padding-left: 20px;
 }
 
@@ -1642,9 +1642,9 @@
 }
 
 .slide-content .form-actions {
-  padding: 34px 20px 35px;
-  margin-top: 35px;
-  margin-bottom: 35px;
+  padding: 28px 20px 29px;
+  margin-top: 29px;
+  margin-bottom: 29px;
   background-color: #f5f5f5;
   border-top: 1px solid #e5e5e5;
   *zoom: 1;
@@ -1668,7 +1668,7 @@
 
 .slide-content .help-block {
   display: block;
-  margin-bottom: 17.5px;
+  margin-bottom: 14.5px;
 }
 
 .slide-content .help-inline {
@@ -1682,7 +1682,7 @@
 .slide-content .input-append,
 .slide-content .input-prepend {
   display: inline-block;
-  margin-bottom: 17.5px;
+  margin-bottom: 14.5px;
   font-size: 0;
   white-space: nowrap;
   vertical-align: middle;
@@ -1698,7 +1698,7 @@
 .slide-content .input-prepend .dropdown-menu,
 .slide-content .input-append .popover,
 .slide-content .input-prepend .popover {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .slide-content .input-append input,
@@ -1729,12 +1729,12 @@
 .slide-content .input-prepend .add-on {
   display: inline-block;
   width: auto;
-  height: 35px;
+  height: 29px;
   min-width: 16px;
   padding: 4px 5px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: normal;
-  line-height: 35px;
+  line-height: 29px;
   text-align: center;
   text-shadow: 0 1px 0 #ffffff;
   background-color: #eeeeee;
@@ -1948,16 +1948,16 @@
 }
 
 .slide-content .control-group {
-  margin-bottom: 17.5px;
+  margin-bottom: 14.5px;
 }
 
 .slide-content legend + .control-group {
-  margin-top: 35px;
+  margin-top: 29px;
   -webkit-margin-top-collapse: separate;
 }
 
 .slide-content .form-horizontal .control-group {
-  margin-bottom: 35px;
+  margin-bottom: 29px;
   *zoom: 1;
 }
 
@@ -2000,7 +2000,7 @@
 .slide-content .form-horizontal .uneditable-input + .help-block,
 .slide-content .form-horizontal .input-prepend + .help-block,
 .slide-content .form-horizontal .input-append + .help-block {
-  margin-top: 17.5px;
+  margin-top: 14.5px;
 }
 
 .slide-content .form-horizontal .form-actions {
@@ -2016,13 +2016,13 @@
 
 .slide-content .table {
   width: 100%;
-  margin-bottom: 35px;
+  margin-bottom: 29px;
 }
 
 .slide-content .table th,
 .slide-content .table td {
   padding: 8px;
-  line-height: 35px;
+  line-height: 29px;
   text-align: left;
   vertical-align: top;
   border-top: 1px solid #dddddd;
@@ -2948,7 +2948,7 @@
 .slide-content .dropdown-menu .divider {
   *width: 100%;
   height: 1px;
-  margin: 16.5px 1px;
+  margin: 13.5px 1px;
   *margin: -5px 0 5px;
   overflow: hidden;
   background-color: #e5e5e5;
@@ -2960,7 +2960,7 @@
   padding: 3px 20px;
   clear: both;
   font-weight: normal;
-  line-height: 35px;
+  line-height: 29px;
   color: #333333;
   white-space: nowrap;
 }
@@ -3182,7 +3182,7 @@
   float: right;
   font-size: 20px;
   font-weight: bold;
-  line-height: 35px;
+  line-height: 29px;
   color: #000000;
   text-shadow: 0 1px 0 #ffffff;
   opacity: 0.2;
@@ -3212,8 +3212,8 @@
   padding: 4px 12px;
   margin-bottom: 0;
   *margin-left: .3em;
-  font-size: 30px;
-  line-height: 35px;
+  font-size: 25px;
+  line-height: 29px;
   color: #333333;
   text-align: center;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
@@ -3302,7 +3302,7 @@
 
 .slide-content .btn-large {
   padding: 11px 19px;
-  font-size: 37.5px;
+  font-size: 31.25px;
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
@@ -3315,7 +3315,7 @@
 
 .slide-content .btn-small {
   padding: 2px 10px;
-  font-size: 25.5px;
+  font-size: 21.25px;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
@@ -3333,7 +3333,7 @@
 
 .slide-content .btn-mini {
   padding: 0 6px;
-  font-size: 22.5px;
+  font-size: 18.75px;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
@@ -3648,8 +3648,8 @@
 }
 
 .slide-content .btn-toolbar {
-  margin-top: 17.5px;
-  margin-bottom: 17.5px;
+  margin-top: 14.5px;
+  margin-bottom: 14.5px;
   font-size: 0;
 }
 
@@ -3673,19 +3673,19 @@
 .slide-content .btn-group > .btn,
 .slide-content .btn-group > .dropdown-menu,
 .slide-content .btn-group > .popover {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .slide-content .btn-group > .btn-mini {
-  font-size: 22.5px;
+  font-size: 18.75px;
 }
 
 .slide-content .btn-group > .btn-small {
-  font-size: 25.5px;
+  font-size: 21.25px;
 }
 
 .slide-content .btn-group > .btn-large {
-  font-size: 37.5px;
+  font-size: 31.25px;
 }
 
 .slide-content .btn-group > .btn:first-child {
@@ -3886,7 +3886,7 @@
 
 .slide-content .alert {
   padding: 8px 35px 8px 14px;
-  margin-bottom: 35px;
+  margin-bottom: 29px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background-color: #fcf8e3;
   border: 1px solid #fbeed5;
@@ -3908,7 +3908,7 @@
   position: relative;
   top: -2px;
   right: -21px;
-  line-height: 35px;
+  line-height: 29px;
 }
 
 .slide-content .alert-success {
@@ -3958,7 +3958,7 @@
 }
 
 .slide-content .nav {
-  margin-bottom: 35px;
+  margin-bottom: 29px;
   margin-left: 0;
   list-style: none;
 }
@@ -3986,7 +3986,7 @@
   padding: 3px 15px;
   font-size: 11px;
   font-weight: bold;
-  line-height: 35px;
+  line-height: 29px;
   color: #999999;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
@@ -4029,7 +4029,7 @@
 .slide-content .nav-list .divider {
   *width: 100%;
   height: 1px;
-  margin: 16.5px 1px;
+  margin: 13.5px 1px;
   *margin: -5px 0 5px;
   overflow: hidden;
   background-color: #e5e5e5;
@@ -4079,7 +4079,7 @@
 .slide-content .nav-tabs > li > a {
   padding-top: 8px;
   padding-bottom: 8px;
-  line-height: 35px;
+  line-height: 29px;
   border: 1px solid transparent;
   -webkit-border-radius: 4px 4px 0 0;
      -moz-border-radius: 4px 4px 0 0;
@@ -4374,7 +4374,7 @@
 .slide-content .navbar {
   *position: relative;
   *z-index: 2;
-  margin-bottom: 35px;
+  margin-bottom: 29px;
   overflow: visible;
 }
 
@@ -4423,7 +4423,7 @@
 .slide-content .navbar .brand {
   display: block;
   float: left;
-  padding: 2.5px 20px 2.5px;
+  padding: 5.5px 20px 5.5px;
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
@@ -4621,7 +4621,7 @@
 
 .slide-content .navbar .nav > li > a {
   float: none;
-  padding: 2.5px 15px 2.5px;
+  padding: 5.5px 15px 5.5px;
   color: #b62224;
   text-decoration: none;
   text-shadow: 0 1px 0 #ffffff;
@@ -4957,7 +4957,7 @@
 
 .slide-content .breadcrumb {
   padding: 8px 15px;
-  margin: 0 0 35px;
+  margin: 0 0 29px;
   list-style: none;
   background-color: #f5f5f5;
   -webkit-border-radius: 4px;
@@ -4982,7 +4982,7 @@
 }
 
 .slide-content .pagination {
-  margin: 35px 0;
+  margin: 29px 0;
 }
 
 .slide-content .pagination ul {
@@ -5007,7 +5007,7 @@
 .slide-content .pagination ul > li > span {
   float: left;
   padding: 4px 12px;
-  line-height: 35px;
+  line-height: 29px;
   text-decoration: none;
   background-color: #ffffff;
   border: 1px solid #dddddd;
@@ -5068,7 +5068,7 @@
 .slide-content .pagination-large ul > li > a,
 .slide-content .pagination-large ul > li > span {
   padding: 11px 19px;
-  font-size: 37.5px;
+  font-size: 31.25px;
 }
 
 .slide-content .pagination-large ul > li:first-child > a,
@@ -5118,17 +5118,17 @@
 .slide-content .pagination-small ul > li > a,
 .slide-content .pagination-small ul > li > span {
   padding: 2px 10px;
-  font-size: 25.5px;
+  font-size: 21.25px;
 }
 
 .slide-content .pagination-mini ul > li > a,
 .slide-content .pagination-mini ul > li > span {
   padding: 0 6px;
-  font-size: 22.5px;
+  font-size: 18.75px;
 }
 
 .slide-content .pager {
-  margin: 35px 0;
+  margin: 29px 0;
   text-align: center;
   list-style: none;
   *zoom: 1;
@@ -5559,14 +5559,14 @@
 
 .slide-content .thumbnails > li {
   float: left;
-  margin-bottom: 35px;
+  margin-bottom: 29px;
   margin-left: 20px;
 }
 
 .slide-content .thumbnail {
   display: block;
   padding: 4px;
-  line-height: 35px;
+  line-height: 29px;
   border: 1px solid #ddd;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -5641,9 +5641,9 @@
 .slide-content .badge {
   display: inline-block;
   padding: 2px 4px;
-  font-size: 25.38px;
+  font-size: 21.15px;
   font-weight: bold;
-  line-height: 35px;
+  line-height: 29px;
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   white-space: nowrap;
@@ -5786,8 +5786,8 @@
 }
 
 .slide-content .progress {
-  height: 35px;
-  margin-bottom: 35px;
+  height: 29px;
+  margin-bottom: 29px;
   overflow: hidden;
   background-color: #f7f7f7;
   background-image: -moz-linear-gradient(top, #f5f5f5, #f9f9f9);
@@ -5949,7 +5949,7 @@
 }
 
 .slide-content .accordion {
-  margin-bottom: 35px;
+  margin-bottom: 29px;
 }
 
 .slide-content .accordion-group {
@@ -5980,7 +5980,7 @@
 
 .slide-content .carousel {
   position: relative;
-  margin-bottom: 35px;
+  margin-bottom: 29px;
   line-height: 1;
 }
 
@@ -6114,7 +6114,7 @@
 
 .slide-content .carousel-caption h4,
 .slide-content .carousel-caption p {
-  line-height: 35px;
+  line-height: 29px;
   color: #ffffff;
 }
 
@@ -6131,7 +6131,7 @@
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;
-  line-height: 52.5px;
+  line-height: 43.5px;
   color: inherit;
   background-color: #eeeeee;
   -webkit-border-radius: 6px;
@@ -6148,7 +6148,7 @@
 }
 
 .slide-content .hero-unit li {
-  line-height: 52.5px;
+  line-height: 43.5px;
 }
 
 .slide-content .pull-right {

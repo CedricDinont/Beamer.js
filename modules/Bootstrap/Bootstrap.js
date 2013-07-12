@@ -156,14 +156,14 @@ BootstrapModule = function() {
 					var textAlign = title.css("text-align");
 					title.removeClass("slide-title");
 					title.html("<h1>"+text+"</h1>");
-					title.children().css("margin-top","10px").css("line-height","5px");
+					title.children().css("margin-top","5px").css("line-height","5px");
 
 					var slideContent = node.children("div.horizontally-centered")
 						.removeClass("right-column-algoview-animation-comment")
 						.removeClass("horizontally-centered").addClass("slide-content");
 
 					title.wrap("<div class=\"row-fluid\"><div class=\"offset1 span10\"></div></div>")
-					slideContent.wrap("<div class=\"row-fluid\"><div class=\"offset6 span6\"></div></div>")
+					slideContent.wrap("<div class=\"row-fluid\"><div class=\"offset9 span3\"></div></div>")
 					node.children().wrapAll("<div></div>");
 				}
 			});
@@ -209,7 +209,7 @@ BootstrapModule = function() {
 				var textAlign = title.css("text-align");
 				title.removeClass("slide-title");
 				title.html("<h1>"+text+"</h1>");
-				title.children("h1").css("line-height","40px");
+				title.children("h1");
 
 				var slideContent = node.children("div.horizontally-centered");
 				var sl = slideContent.children("div.slide-content");

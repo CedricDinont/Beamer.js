@@ -26,3 +26,7 @@ section a:link{
 #algoview-container {
 	top: 85px;
 }
+
+.width-50-percent{
+	width: 75%;
+}
