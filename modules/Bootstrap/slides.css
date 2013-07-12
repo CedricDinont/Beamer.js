@@ -10,10 +10,19 @@ section a:link{
 .section-with-title {
       font-family: inherit;
       font-size: inherit;
-      padding-top: 120px;
+      padding-top: 35px;
 }
 
 .section-without-title {
       font-family: inherit;
       font-size: inherit;
+}
+
+.fill { 
+    min-height: 100%;
+    height: 100%;
+}
+
+#algoview-container {
+	top: 85px;
 }

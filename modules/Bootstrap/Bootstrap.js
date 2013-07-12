@@ -33,13 +33,19 @@ BootstrapModule = function() {
 			node = $(node);
 			node.removeClass("power");
 			node.addClass("table table-striped table-bordered table-condensed table-hover");
-			node.css("margin-top","5px")
+			node.css("margin-top","5px").css("margin-bottom","5px");
+			node.wrap("<div class='well well-small' style='background: white;'>");
 		});
 	}
 
 	function buttons(){
 		$("input[type='button']").addClass("btn btn-mini");
 	}
+
+	function svgs(){
+		$("div[id^='anim']").addClass("well well-small");
+	}
+
 
 	this.afterCreatingSlides = function() {
 		console.log("hello bootstrap");
@@ -49,8 +55,12 @@ BootstrapModule = function() {
 
 		$('<link rel="stylesheet" type="text/css" href="'+"./modules/Bootstrap/css/bootstrap.css"+'" >')
 		   .appendTo("head");
+		$('<link rel="stylesheet" type="text/css" href="'+"./modules/Bootstrap/css/bootstrap-responsive.css"+'" >')
+		   .appendTo("head");
 
 		$('<link rel="stylesheet" type="text/css" href="'+"./modules/Bootstrap/slide/css/bootstrap.css"+'" >')
+		   .appendTo("head");
+		$('<link rel="stylesheet" type="text/css" href="'+"./modules/Bootstrap/slide/css/bootstrap-responsive.css"+'" >')
 		   .appendTo("head");
 
 		function presentationTitle(){
@@ -107,13 +117,13 @@ BootstrapModule = function() {
 		function blocks(){
 			$(".block").each(function(clazz,node){
 				node = $(node);
-				node.removeClass("block").addClass("alert alert-info");
+				node.removeClass("block").addClass("alert alert-danger");
 
 				node.children(".block-title").each(function(clazz,node){
 					node = $(node);
 					var text = node.html();
 					node.removeClass("block-title");
-					node.html("<span class=\"label label-info\">"+text+"</span>");
+					node.html("<span class=\"label label-important\">"+text+"</span>");
 				});
 
 				node.children(".block-content").each(function(clazz,node){
@@ -134,8 +144,6 @@ BootstrapModule = function() {
 		}
 
 		slideContainer();
-
-		tables();
 
 		function slideWithAlgoview(){
 			$(".section-with-title").each(function(clazz,node){
@@ -163,6 +171,34 @@ BootstrapModule = function() {
 
 		slideWithAlgoview();
 
+		function slideWithIframe(){
+			$(".section-with-title").each(function(clazz,node){
+				node = $(node);
+				if(node.children("iframe").length > 0){
+					node.children("iframe").addClass("well well-small fill");
+					node.css("padding-top","85px");
+					var title = node.children("div.slide-title");
+					var text = title.text();
+				
+					var textAlign = title.css("text-align");
+					title.removeClass("slide-title");
+					title.html("<h1>"+text+"</h1>");
+					title.children().css("margin-top","10px").css("line-height","5px");
+
+					var slideContent = node.children("div.horizontally-centered")
+						.removeClass("right-column-algoview-animation-comment")
+						.removeClass("horizontally-centered").addClass("slide-content");
+
+					title.wrap("<div class=\"row-fluid\"><div class=\"offset1 span10\"></div></div>")
+					slideContent.wrap("<div class=\"row-fluid\"><div class=\"offset6 span6\"></div></div>")
+					node.children().wrapAll("<div></div>");
+					node.children().css("height","100%");
+				}
+			});
+		}
+
+		slideWithIframe();
+
 		function slide(){
 			$(".section-with-title").each(function(clazz,node){
 				node = $(node);
@@ -173,7 +209,7 @@ BootstrapModule = function() {
 				var textAlign = title.css("text-align");
 				title.removeClass("slide-title");
 				title.html("<h1>"+text+"</h1>");
-				title.children("h1").css("line-height","0px");
+				title.children("h1").css("line-height","40px");
 
 				var slideContent = node.children("div.horizontally-centered");
 				var sl = slideContent.children("div.slide-content");
@@ -261,8 +297,9 @@ BootstrapModule = function() {
 
 			$("#table-of-contents").each(function(clazz,node){
 				node = $(node);
-				node.removeAttr("id").addClass("offset3 span6");
-				node.wrap("<div class=\"row-fluid navbar-inner\">")
+				node.removeAttr("id");
+				node.wrap("<div class='navbar-inverse'>");
+				node.wrap("<div class=\"row-fluid navbar-inner\">");
 				node.parent().css("margin","0 auto").css("padding-bottom","0px").css("position","absolute").css("width","100%");
 			});
 		}
@@ -279,7 +316,7 @@ BootstrapModule = function() {
 			var bar = $("#progress-bar");
 			bar.removeAttr("id").addClass("bar");
 			bar.css("position","absolute").css("bottom","0px").css("height","10px");
-			bar.wrap("<div class=\"progress\" />");
+			bar.wrap("<div class=\"progress progress-striped active progress-danger\" />");
 
 			var left = $("#back-control");
 			left.html("<i class=\"icon-chevron-left\"></i>");
@@ -288,7 +325,7 @@ BootstrapModule = function() {
 			left.html("<i class=\"icon-chevron-right\"></i>");
 
 			var fullscreen = $("#go-fullscreen-button");
-			fullscreen.html("<i class=\"icon-fullscreen\"></i>");
+			fullscreen.html("<i class=\"icon-resize-full\"></i>");
 		}
 
 		progressBar();
@@ -299,7 +336,7 @@ BootstrapModule = function() {
 	this.onPresentationLoad = function() {
 		tables();
 		buttons();
-
+		svgs();
 		console.log("bootstrap loaded");
 	};
 }
