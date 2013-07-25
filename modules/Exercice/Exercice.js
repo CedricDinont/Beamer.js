@@ -12,6 +12,7 @@ function ExerciceTagHandler() {
 	this.parseTag = function(tag, presentation) {
 		var exercice = $(document.createElement("div"));
 		exercice.addClass("block");
+		exercice.attr("data-type","exercice");
 
 		var exerciceType = $(tag).attr("type");
 		if (exerciceType !== undefined) {
@@ -53,9 +54,9 @@ function AnswerTagHandler() {
 		var element = $(document.createElement("div"));
 		$(element).attr($(tag).getAttributes());
 		$(element).attr("id","answer");
+		$(element).attr("class","answer");
 		$(element).css("visibility","hidden");
 		$(element).css("display","none");
-		$(element).css("margin-left","20px");
 
 		$(tag).contents().each(function(index) {
 			$(element).append(presentation.parseTag(this));
@@ -75,6 +76,7 @@ var AnswerDisplay = function(){
 			}else{
 				$(this).css("visibility","hidden");
 				$(this).css("display","none");
+				presentation.presentation.onResize();
 			}
 			
 		});
