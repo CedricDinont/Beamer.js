@@ -30,21 +30,8 @@ function Presentation(completePresentationName, presentationFile) {
 	this.slides = new Array();
 	this.modules = new Array();
 	
-	this.xmlPresentationParser = new XmlPresentationParser();
-
 	var self = this;
 
-	this.loadErrorHandler = function(msg) {
-		$("#loading-indicator").remove();
-		
-		var errorMessage = $('#error-message');
-		errorMessage.removeClass('error-message-hidden');
-		errorMessage.addClass('error-message-display');
-	}
-
-	this.loadSuccessHandler = function(presentationData) {		
-		self.xmlPresentationParser.parse(self, presentationData);
-	}
 	
 	this.onPresentationParsed = function() {
 		self.callModulesHandler("onPresentationLoad");
@@ -58,19 +45,79 @@ function Presentation(completePresentationName, presentationFile) {
 		
 		window.onresize = this.onResize.bind(this);
 		this.onResize();
-	} 
+	}
 
-	this.load = function() {
+	this.load = function(presentationFile, onError, onSuccess) {
+		console.log("Load "+presentationFile);
 		$.ajax({
    			type: "GET",
 			url: presentationFile,
-			error: this.loadErrorHandler,
-			success: this.loadSuccessHandler,
+			error: onError,
+			success: onSuccess,
 			dataType: "text",
 		});
 	};
+
+	this.loadXML(presentationFile+".xml", function(){
+		console.log("Trying Jade");
+		self.loadJade(presentationFile+".jade",
+			function(){
+				console.log("Error while loading presentation: no file found");
+		});
+	});
+}
+
+Presentation.prototype.loadXML = function(presentationFile, errorCallback){
+	this.xmlPresentationParser = new XmlPresentationParser();
+	var self = this;
+	
+	this.loadXMLErrorHandler = function(msg) {
+		$("#loading-indicator").remove();
+		console.log("Error while loading XML: file not found");
+		var errorMessage = $('#error-message');
+		errorMessage.removeClass('error-message-hidden');
+		errorMessage.addClass('error-message-display');
+	}
+
+	this.loadXMLSuccessHandler = function(presentationData) {	
+		self.xmlPresentationParser.parse(self, presentationData);
+	}
+
+	this.load(presentationFile,
+		function(){
+			self.loadXMLErrorHandler();
+			if(errorCallback !== undefined){
+				errorCallback();
+			}
+		},
+		this.loadXMLSuccessHandler);
+}
+
+Presentation.prototype.loadJade = function(presentationFile, errorCallback){
+	this.jadePresentationParser = new JadePresentationParser();
+	var self = this;
+
+	this.loadJadeErrorHandler = function(msg) {
+		console.log("Error while loading Jade: file not found");
+		$("#loading-indicator").remove();
 		
-	this.load(presentationFile);
+		var errorMessage = $('#error-message');
+		errorMessage.removeClass('error-message-hidden');
+		errorMessage.addClass('error-message-display');
+	}
+
+	this.loadJadeSuccessHandler = function(presentationData) {
+		self.xmlPresentationParser.parse(self, self.jadePresentationParser.parse(self, presentationData));	
+	}
+	
+	this.load(presentationFile,
+		function(){
+			self.loadJadeErrorHandler();
+			if(errorCallback !== undefined){
+				errorCallback();
+			}
+		},
+		this.loadJadeSuccessHandler);
 }
 
 Presentation.prototype.onHashChange = function() {	
@@ -348,7 +395,8 @@ $(document).ready(function() {
 	}
 	
 	var presentationName = completePresentationName.substring(completePresentationName.lastIndexOf('/'));
-	var presentationFile = "./slides/" + completePresentationName + "/" + presentationName + ".xml";
+
+	var presentationFile = "./slides/" + completePresentationName + "/" + presentationName;
 
 	var presentation = new Presentation(completePresentationName, presentationFile);
 });
