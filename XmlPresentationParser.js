@@ -1,4 +1,3 @@
-
 var XmlPresentationParser = function() {
 	this.presentation;
 	this.presentationData;
@@ -7,6 +6,10 @@ var XmlPresentationParser = function() {
 
 	this.xmlSerializer = new XMLSerializer();
 	this.tagHandlerManager = new TagHandlerManager();
+}
+
+XmlPresentationParser.prototype.getFileExtension = function() {
+	return ".xml";
 }
 
 XmlPresentationParser.prototype.parseTag = function(tag) {
