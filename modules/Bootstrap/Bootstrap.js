@@ -18,7 +18,7 @@ BootstrapModule = function() {
 				window.setTimeout(function() { self.updateVerticalAlignment(slide); }, 50);
 		}
 
-		var slideContentElement = $("div[class='slide-content']", slideElement);
+		var slideContentElement = $("div[class='slide-content span']", slideElement);
 
 		var slideContentHeight = slideContentElement.height();
 		var paddingTop = (((slideHeight - 0)- slideContentHeight) / 2)/2;
@@ -26,6 +26,13 @@ BootstrapModule = function() {
 			paddingTop = 0;
 		}
 		slideContentElement.css("padding-top", paddingTop + "px");
+
+		var slideContentWidth = slideContentElement.width();
+		var paddingLeft = (((slideWidth - 0)- slideContentWidth) / 2);
+		if (paddingLeft < 0) {
+			paddingLeft = 0;
+		}
+		slideContentElement.css("padding-left", paddingLeft + "px");
 	}
 
 	function tables(){
@@ -213,10 +220,10 @@ BootstrapModule = function() {
 
 				var slideContent = node.children("div.horizontally-centered");
 				var sl = slideContent.children("div.slide-content");
+				sl.addClass("span");
 				//sl.css("padding-left","0px");
 
 				title.wrap("<div class=\"row-fluid\"><div class=\"offset1 span10\"></div></div>")
-				slideContent.wrap("<div class=\"row-fluid\"><div class=\"offset1 span10\"></div></div>")
 				node.children().each(function(i,elem){node.prepend(elem)})
 				node.children().wrapAll("<div></div>");
 			});
@@ -227,9 +234,9 @@ BootstrapModule = function() {
 
 				var slideContent = node.children("div.horizontally-centered");
 				var sl = slideContent.children("div.slide-content");
+				sl.addClass("span");
 				sl.css("padding-left","0px");
 
-				slideContent.wrap("<div class=\"row-fluid\"><div class=\"offset1 span10\"></div></div>")
 				node.children().wrapAll("<div></div>");
 			});
 		}
