@@ -1,5 +1,5 @@
-var JadePresentationParser = function() {
-	this.xmlPresentationParser = new XmlPresentationParser();
+var JadePresentationParser = function(xmlPresentationParser) {
+	this.xmlPresentationParser = xmlPresentationParser;
 }
 
 JadePresentationParser.prototype.getFileExtension = function() {

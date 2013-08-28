@@ -37,7 +37,7 @@ function Presentation(completePresentationName, presentationFile) {
 	this.xmlPresentationParser = new XmlPresentationParser();
 	
 	this.parsers.push(this.xmlPresentationParser);
-	this.parsers.push(new JadePresentationParser());
+	this.parsers.push(new JadePresentationParser(this.xmlPresentationParser));
 }
 
 Presentation.prototype.onPresentationParsed = function() {

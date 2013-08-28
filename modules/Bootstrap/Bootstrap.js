@@ -28,7 +28,7 @@ BootstrapModule = function() {
 		slideContentElement.css("padding-top", paddingTop + "px");
 
 		var slideContentWidth = slideContentElement.width();
-		var paddingLeft = (((slideWidth - 0)- slideContentWidth) / 2);
+		var paddingLeft = (((slideWidth - 0)- slideContentWidth) / 2) - 6;
 		if (paddingLeft < 0) {
 			paddingLeft = 0;
 		}
@@ -124,7 +124,7 @@ BootstrapModule = function() {
 		function blocks(){
 			$(".block").each(function(clazz,node){
 				node = $(node);
-				node.removeClass("block").addClass("alert alert-danger");
+				node.removeClass("block").addClass("alert alert-danger").css("margin-bottom","5px");
 
 				node.children(".block-title").each(function(clazz,node){
 					node = $(node);
@@ -152,6 +152,14 @@ BootstrapModule = function() {
 
 		slideContainer();
 
+		function allSlides(){
+			$(".section-with-title").each(function(clazz,node){
+				node = $(node);
+				node.children().each(function(i,elem){node.prepend(elem)});
+			});
+		}
+		allSlides();
+
 		function slideWithAlgoview(){
 			$(".section-with-title").each(function(clazz,node){
 				node = $(node);
@@ -162,70 +170,70 @@ BootstrapModule = function() {
 				
 					var textAlign = title.css("text-align");
 					title.removeClass("slide-title");
-					title.html("<h1>"+text+"</h1>");
+					title.wrap("<div class=\"row-fluid\"><div class=\"offset1 span10\"></div></div>")
+					title.wrapAll("<h1></h1>");
 					title.children().css("margin-top","5px").css("line-height","5px");
 
 					var slideContent = node.children("div.horizontally-centered")
 						.removeClass("right-column-algoview-animation-comment")
 						.removeClass("horizontally-centered").addClass("slide-content");
 
-					title.wrap("<div class=\"row-fluid\"><div class=\"offset1 span10\"></div></div>")
-					slideContent.wrap("<div class=\"row-fluid\"><div class=\"offset9 span3\"></div></div>")
+					slideContent.wrap("<div class=\"row-fluid\"><div class=\"offset7 span5\"></div></div>")
+					node.children().each(function(i,elem){node.prepend(elem)});
 					node.children().wrapAll("<div></div>");
 				}
 			});
 		}
 
-		slideWithAlgoview();
-
 		function slideWithIframe(){
 			$(".section-with-title").each(function(clazz,node){
-				node = $(node);
-				if(node.children("iframe").length > 0){
-					node.children("iframe").addClass("well well-small fill");
-					node.css("padding-top","85px");
+				if($(node).find("iframe").length > 0){
+					node = $(node);
+
+					node.find("iframe").addClass("well well-small iframeFill");
+					node.css("padding-top","65px");
+
 					var title = node.children("div.slide-title");
 					var text = title.text();
 				
 					var textAlign = title.css("text-align");
 					title.removeClass("slide-title");
-					title.html("<h1>"+text+"</h1>");
+					title.wrap("<div class=\"row-fluid\"><div class=\"offset1 span10\"></div></div>");
+					title.wrapAll("<h1></h1>");
 					title.children().css("margin-top","10px").css("line-height","5px");
 
 					var slideContent = node.children("div.horizontally-centered")
 						.removeClass("right-column-algoview-animation-comment")
-						.removeClass("horizontally-centered").addClass("slide-content");
-
-					title.wrap("<div class=\"row-fluid\"><div class=\"offset1 span10\"></div></div>")
-					slideContent.wrap("<div class=\"row-fluid\"><div class=\"offset6 span6\"></div></div>")
-					node.children().wrapAll("<div></div>");
-					node.children().css("height","100%");
+						.removeClass("horizontally-centered")
+						.addClass("fill");
+					slideContent.find("div.slide-content").addClass("fill");
+					slideContent.wrap("<div class=\"row-fluid fill\"><div class=\"span12 fill\"></div></div>");
+					
+					if(node.index() > 1){
+						node.children().each(function(i,elem){node.prepend(elem)});
+					}
+					node.children().wrapAll("<div style=\"height: 100%\"></div>");
 				}
 			});
 		}
-
-		slideWithIframe();
 
 		function slide(){
 			$(".section-with-title").each(function(clazz,node){
 				node = $(node);
 				node.css("padding-top","85px");
 				var title = node.children("div.slide-title");
-				var text = title.text();
 				
 				var textAlign = title.css("text-align");
 				title.removeClass("slide-title");
-				title.html("<h1>"+text+"</h1>");
-				title.children("h1");
+				title.wrap("<div class=\"row-fluid\"><div class=\"offset1 span10\"></div></div>");
+				title.wrapAll("<h1></h1>");
 
 				var slideContent = node.children("div.horizontally-centered");
 				var sl = slideContent.children("div.slide-content");
 				sl.addClass("span");
 				//sl.css("padding-left","0px");
 
-				title.wrap("<div class=\"row-fluid\"><div class=\"offset1 span10\"></div></div>")
-				node.children().each(function(i,elem){node.prepend(elem)})
-				node.children().wrapAll("<div></div>");
+				node.children().wrapAll("<div class=\"fill\"></div>");
 			});
 
 			$(".section-without-title").each(function(clazz,node){
@@ -241,6 +249,8 @@ BootstrapModule = function() {
 			});
 		}
 
+		slideWithAlgoview();
+		slideWithIframe();
 		slide();
 
 		function toc(){

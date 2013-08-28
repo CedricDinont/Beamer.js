@@ -127,7 +127,7 @@ TocModule.prototype.createTableOfContents = function() {
 		if (slideElement.attr("id") != undefined) {
 			sectionSlideReference = slideElement.attr("id");
 		}
-		 
+		
 		sectionsList.append("<li id='table-of-contents-section-" 
 			+ sectionNumber 
 			+ "'><a href='#" + sectionSlideReference + "'>" 
