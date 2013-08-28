@@ -373,8 +373,8 @@ $(document).ready(function() {
 	var presentationName = completePresentationName.substring(completePresentationName.lastIndexOf('/'));
 
 	var presentationFile = "./slides/" + completePresentationName + "/" + presentationName;
-
-	var presentation = new Presentation(completePresentationName, presentationFile);
+	// presentation en global pour être visible depuis les animations
+	presentation = new Presentation(completePresentationName, presentationFile);
 	presentation.load();
 });
 
