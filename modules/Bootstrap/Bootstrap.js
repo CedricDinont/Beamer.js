@@ -155,7 +155,10 @@ BootstrapModule = function() {
 		function allSlides(){
 			$(".section-with-title").each(function(clazz,node){
 				node = $(node);
-				node.children().each(function(i,elem){node.prepend(elem)});
+				var title = node.children("div.slide-title");
+				if(title.index() > 0){
+						node.children().each(function(i,elem){node.prepend(elem)});
+				}
 			});
 		}
 		allSlides();
@@ -179,7 +182,6 @@ BootstrapModule = function() {
 						.removeClass("horizontally-centered").addClass("slide-content");
 
 					slideContent.wrap("<div class=\"row-fluid\"><div class=\"offset7 span5\"></div></div>")
-					node.children().each(function(i,elem){node.prepend(elem)});
 					node.children().wrapAll("<div></div>");
 				}
 			});
@@ -208,10 +210,6 @@ BootstrapModule = function() {
 						.addClass("fill");
 					slideContent.find("div.slide-content").addClass("fill");
 					slideContent.wrap("<div class=\"row-fluid fill\"><div class=\"span12 fill\"></div></div>");
-					
-					if(node.index() > 1){
-						node.children().each(function(i,elem){node.prepend(elem)});
-					}
 					node.children().wrapAll("<div style=\"height: 100%\"></div>");
 				}
 			});
