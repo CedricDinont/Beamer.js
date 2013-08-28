@@ -24,7 +24,9 @@ section a:link{
 }
 
 #algoview-container {
-	top: 85px;
+	top: 110px;
+	height:88%;
+	margin-left:15px;
 }
 
 .width-50-percent{
