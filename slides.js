@@ -30,94 +30,70 @@ function Presentation(completePresentationName, presentationFile) {
 	this.slides = new Array();
 	this.modules = new Array();
 	
-	var self = this;
-
+	this.parsers = new Array();
+	this.parserNumber = -1;
 	
-	this.onPresentationParsed = function() {
-		self.callModulesHandler("onPresentationLoad");
-		
-		window.onhashchange = self.onHashChange.bind(self);
-		this.onHashChange();
-		
-		$("#slides").css("display", "block"); // TODO : Voir pourquoi ça ne marche pas -> $("#slides").addClass("loaded");
-		$("#loading").remove();
-		$("#loading-mask").fadeOut(250); 
-		
-		window.onresize = this.onResize.bind(this);
-		this.onResize();
-	}
-
-	this.load = function(presentationFile, onError, onSuccess) {
-		console.log("Load "+presentationFile);
-		$.ajax({
-   			type: "GET",
-			url: presentationFile,
-			error: onError,
-			success: onSuccess,
-			dataType: "text",
-		});
-	};
-
-	this.loadXML(presentationFile+".xml", function(){
-		console.log("Trying Jade");
-		self.loadJade(presentationFile+".jade",
-			function(){
-				console.log("Error while loading presentation: no file found");
-		});
-	});
-}
-
-Presentation.prototype.loadXML = function(presentationFile, errorCallback){
+	// TODO: A supprimer après avoir modifié les modules qui accèdent directement au parser XML
 	this.xmlPresentationParser = new XmlPresentationParser();
-	var self = this;
 	
-	this.loadXMLErrorHandler = function(msg) {
-		$("#loading-indicator").remove();
-		console.log("Error while loading XML: file not found");
-		var errorMessage = $('#error-message');
-		errorMessage.removeClass('error-message-hidden');
-		errorMessage.addClass('error-message-display');
-	}
-
-	this.loadXMLSuccessHandler = function(presentationData) {	
-		self.xmlPresentationParser.parse(self, presentationData);
-	}
-
-	this.load(presentationFile,
-		function(){
-			self.loadXMLErrorHandler();
-			if(errorCallback !== undefined){
-				errorCallback();
-			}
-		},
-		this.loadXMLSuccessHandler);
+	this.parsers.push(this.xmlPresentationParser);
+	this.parsers.push(new JadePresentationParser(this.xmlPresentationParser));
 }
 
-Presentation.prototype.loadJade = function(presentationFile, errorCallback){
-	this.jadePresentationParser = new JadePresentationParser();
-	var self = this;
+Presentation.prototype.onPresentationParsed = function() {
+	this.callModulesHandler("onPresentationLoad");
+	
+	window.onhashchange = this.onHashChange.bind(this);
+	this.onHashChange();
+	
+	$("#slides").css("display", "block"); // TODO : Voir pourquoi ça ne marche pas -> $("#slides").addClass("loaded");
+	$("#loading").remove();
+	$("#loading-mask").fadeOut(250); 
+	
+	window.onresize = this.onResize.bind(this);
+	this.onResize();
+}
 
-	this.loadJadeErrorHandler = function(msg) {
-		console.log("Error while loading Jade: file not found");
+Presentation.prototype.tryNextParser = function() {
+	this.parserNumber++;
+	
+	if (this.parsers[this.parserNumber] == undefined) {
+		// No more parser to try.
+		console.log("Error while loading presentation: no file found");
 		$("#loading-indicator").remove();
-		
 		var errorMessage = $('#error-message');
 		errorMessage.removeClass('error-message-hidden');
 		errorMessage.addClass('error-message-display');
-	}
-
-	this.loadJadeSuccessHandler = function(presentationData) {
-		self.xmlPresentationParser.parse(self, self.jadePresentationParser.parse(self, presentationData));	
+		return;
 	}
 	
-	this.load(presentationFile,
-		function(){
-			self.loadJadeErrorHandler();
-			if(errorCallback !== undefined){
-				errorCallback();
-			}
-		},
-		this.loadJadeSuccessHandler);
+	var self = this;
+	var parser = this.parsers[this.parserNumber];
+	this.loadFile(this.presentationFile + parser.getFileExtension())
+		.then(/* on success */
+			  function(presentationData)  {
+				$("#loading-task").html("Parsing")
+				parser.parse(self, presentationData);
+				$("#loading-task").html("Done.")
+			  },
+			  /* on error */
+			  function() {
+				  self.tryNextParser();
+			  }
+		);
+}
+
+Presentation.prototype.load = function() {
+	this.tryNextParser();
+}
+
+Presentation.prototype.loadFile = function(presentationFile) {
+	console.log("Load " + presentationFile);
+	return $.ajax({
+   		type: "GET",
+		url: presentationFile,
+		dataType: "text",
+	});
 }
 
 Presentation.prototype.onHashChange = function() {	
@@ -399,6 +375,7 @@ $(document).ready(function() {
 	var presentationFile = "./slides/" + completePresentationName + "/" + presentationName;
 
 	var presentation = new Presentation(completePresentationName, presentationFile);
+	presentation.load();
 });
 
 
