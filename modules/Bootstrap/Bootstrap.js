@@ -192,7 +192,7 @@ BootstrapModule = function() {
 				if($(node).find("iframe").length > 0){
 					node = $(node);
 
-					node.find("iframe").addClass("well well-small iframeFill");
+					node.find("iframe").addClass("iframeFill");
 					node.css("padding-top","65px");
 
 					var title = node.children("div.slide-title");

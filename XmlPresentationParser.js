@@ -87,6 +87,9 @@ XmlPresentationParser.prototype.loadModules = function() {
 		self.presentation.loadModule(moduleName);
 		self.modulesToWait.push(moduleName);
 	});
+	// on charge par défaut bootstrap
+	self.presentation.loadModule("Bootstrap");
+	self.modulesToWait.push("Bootstrap");
 	waitForModules(this);
 }
 
