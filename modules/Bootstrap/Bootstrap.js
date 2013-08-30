@@ -264,6 +264,11 @@ BootstrapModule = function() {
 					a.html("<i class=\"icon-arrow-up\"></i>");
 				});
 
+				$("#table-of-contents li .table-of-contents-pdf-link").each(function(clazz,a){
+					a = $(a);
+					a.html("<i class=\"icon-print\"></i>");
+				});
+
 				var lis = $("#table-of-contents li");
 
 				lis.each(function(clazz,li){

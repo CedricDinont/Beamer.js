@@ -240,6 +240,18 @@ section a:link    {
 	display: inline-block;
 }
 
+#table-of-contents a[class=table-of-contents-pdf-link]
+{
+	background: url('../../images/glyphicons_181_download_alt.png'); /*thx to glyphicons */
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	padding-top: -5px;
+	width:20px;
+	height: 20px;
+	margin-top: 7px;
+	display: inline-block;
+}
+
 #table-of-contents > ul {
 	margin: 0px;
 	margin-top: -7px;

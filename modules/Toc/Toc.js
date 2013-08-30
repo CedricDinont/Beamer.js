@@ -174,6 +174,7 @@ TocModule.prototype.createTableOfContents = function() {
 			parentPresentation  + 
 			"#toc' class='table-of-contents-up-link'></a></li>"
 		);
+		sectionsList.append("<li><a href='./pdf/"+presentation.completePresentationName+"' class='table-of-contents-pdf-link'></a></li>");
 	}
 
 	$('#table-of-contents').append(sectionsList);
