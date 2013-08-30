@@ -213,6 +213,23 @@ BootstrapModule = function() {
 					node.children().wrapAll("<div style=\"height: 100%\"></div>");
 				}
 			});
+
+			$(".section-without-title").each(function(clazz,node){
+				if($(node).find("iframe").length > 0){
+					node = $(node);
+
+					node.find("iframe").addClass("iframeFill");
+					node.css("padding-top","65px");
+
+					var slideContent = node.children("div.horizontally-centered")
+						.removeClass("right-column-algoview-animation-comment")
+						.removeClass("horizontally-centered")
+						.addClass("fill");
+					slideContent.find("div.slide-content").addClass("fill");
+					slideContent.wrap("<div class=\"row-fluid fill\"><div class=\"span12 fill\"></div></div>");
+					node.children().wrapAll("<div style=\"height: 100%\"></div>");
+				}
+			});
 		}
 
 		function slide(){
@@ -243,7 +260,7 @@ BootstrapModule = function() {
 				sl.addClass("span");
 				sl.css("padding-left","0px");
 
-				node.children().wrapAll("<div></div>");
+				node.children().wrapAll("<div class=\"fill\"></div>");
 			});
 		}
 
