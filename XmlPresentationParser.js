@@ -82,27 +82,39 @@ XmlPresentationParser.prototype.parseContent = function() {
 XmlPresentationParser.prototype.loadModules = function() {
 	var self = this;
 	var modules = $("modules", this.presentationData);
+	var isBootstrap = false;
 	$("module", modules).each(function() {
 		var moduleName = $(this).attr("name");
+		var args = $(this).attr("args");
+		if(moduleName === "Bootstrap"){
+			isBootstrap = true;
+		}
 		self.presentation.loadModule(moduleName);
-		self.modulesToWait.push(moduleName);
+		self.modulesToWait.push({moduleName:moduleName,args:args});
 	});
-	// on charge par défaut bootstrap
-	self.presentation.loadModule("Bootstrap");
-	self.modulesToWait.push("Bootstrap");
+
+	// on charge par défaut bootstrap s'il n'est pas dans la liste des modules
+	if(!isBootstrap){
+		self.presentation.loadModule("Bootstrap");
+		self.modulesToWait.push({moduleName:"Bootstrap",args:{}});
+	}
+
 	waitForModules(this);
 }
 
 waitForModules = function(parser) {
 	for (var i in parser.modulesToWait) {
-		var moduleName = parser.modulesToWait[i];
+		var module = parser.modulesToWait[i];
+		var moduleName = module.moduleName;
+		var args = module.args;
 		// console.log("Verifying if " + moduleName + " is loaded.");
 		var test;
 		eval("test = typeof " + moduleName + "Module");
 		if (test === "function") {
 			// console.log("Yes.");
 			parser.modulesToWait.splice(i, 1);
-			eval("parser.presentation.modules.push(new " + moduleName + "Module(parser.presentation))");
+			var moduleInstance = eval("new " + moduleName + "Module(parser.presentation,"+args+")");
+			parser.presentation.modules.push(moduleInstance);
 			break;
 		} else {
 			// console.log("No.");

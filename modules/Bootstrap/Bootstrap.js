@@ -1,4 +1,7 @@
-BootstrapModule = function() {
+BootstrapModule = function(presentation,args) {
+	this.presentation = presentation;
+	this.args = args;
+	var self = this;
 
 	Presentation.prototype.updateVerticalAlignment = function(slide) {
 		var slideElement = slide.domElement;
@@ -371,7 +374,9 @@ BootstrapModule = function() {
 	}
 
 	this.onPresentationLoad = function() {
-		tables();
+		if(self.args.tables){
+			tables();
+		}
 		buttons();
 		svgs();
 		console.log("bootstrap loaded");
