@@ -105,7 +105,6 @@ XmlPresentationParser.prototype.loadModules = function() {
 waitForModules = function(parser) {
 	for (var i in parser.modulesToWait) {
 		var module = parser.modulesToWait[i];
-		console.log(module);
 		var moduleName = module.moduleName;
 		var args = module.args;
 		// console.log("Verifying if " + moduleName + " is loaded.");
