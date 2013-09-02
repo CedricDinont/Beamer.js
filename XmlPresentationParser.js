@@ -96,7 +96,7 @@ XmlPresentationParser.prototype.loadModules = function() {
 	// on charge par défaut bootstrap s'il n'est pas dans la liste des modules
 	if(!isBootstrap){
 		self.presentation.loadModule("Bootstrap");
-		self.modulesToWait.push({moduleName:"Bootstrap",args:{}});
+		self.modulesToWait.push({moduleName:"Bootstrap",args:"{}"});
 	}
 
 	waitForModules(this);
@@ -105,6 +105,7 @@ XmlPresentationParser.prototype.loadModules = function() {
 waitForModules = function(parser) {
 	for (var i in parser.modulesToWait) {
 		var module = parser.modulesToWait[i];
+		console.log(module);
 		var moduleName = module.moduleName;
 		var args = module.args;
 		// console.log("Verifying if " + moduleName + " is loaded.");

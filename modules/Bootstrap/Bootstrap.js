@@ -374,7 +374,7 @@ BootstrapModule = function(presentation,args) {
 	}
 
 	this.onPresentationLoad = function() {
-		if(self.args.tables){
+		if(self.args && self.args.tables){
 			tables();
 		}
 		buttons();
