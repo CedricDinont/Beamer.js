@@ -463,3 +463,15 @@ ul {
 .column-2-on-2 {
 	width: 50%;
 }
+
+.column-1-on-3 {
+	width: 33%;
+}
+
+.column-2-on-3 {
+	width: 33%;
+}
+
+.column-3-on-3 {
+	width: 33%;
+}
