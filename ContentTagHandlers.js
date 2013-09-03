@@ -111,10 +111,12 @@ function ColumnsTagHandler() {
 		var columns = $(document.createElement("div"));
 		columns.addClass("columns");
 		var columnNumber = 1;
+		var colsNum = $('> column', $(tag)).length;
+		var onColumn = "-on-"+colsNum+"";
 		$('> column', $(tag)).each(function(index) {
 			var column = $(document.createElement("div"));
 			column.addClass("column");
-			column.addClass("column-" + columnNumber + "-on-2");  // TODO: Gérer plus de 2 colonnes
+			column.addClass("column-" + columnNumber + onColumn);  // TODO: Gérer plus de 2 colonnes
 			$(this).contents().each(function() {
 				column.append(presentation.parseTag(this));
 			});
