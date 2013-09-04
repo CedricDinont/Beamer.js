@@ -349,9 +349,15 @@ Presentation.prototype.updateVerticalAlignment = function(slide) {
 function defaultOnShowSlide(newSlide, oldSlide) {
 	console.log('Showing slide number ' + newSlide.slideNumber + " - id " + newSlide.id);
 	newSlide.presentation.updateVerticalAlignment(newSlide);
+	// for phantomjs
+	newSlide.presentation.state = "ready";
+	// -------------
 }
 
 function defaultOnLeaveSlide(newSlide, oldSlide) {
+	// for phantomjs
+	newSlide.presentation.state = "wait";
+	// -------------
 	console.log('Leaving slide number ' + oldSlide.slideNumber + " - id " + oldSlide.id);
 }
 

@@ -1,4 +1,7 @@
-BootstrapModule = function() {
+BootstrapModule = function(presentation,args) {
+	this.presentation = presentation;
+	this.args = args;
+	var self = this;
 
 	Presentation.prototype.updateVerticalAlignment = function(slide) {
 		var slideElement = slide.domElement;
@@ -213,6 +216,23 @@ BootstrapModule = function() {
 					node.children().wrapAll("<div style=\"height: 100%\"></div>");
 				}
 			});
+
+			$(".section-without-title").each(function(clazz,node){
+				if($(node).find("iframe").length > 0){
+					node = $(node);
+
+					node.find("iframe").addClass("iframeFill");
+					node.css("padding-top","65px");
+
+					var slideContent = node.children("div.horizontally-centered")
+						.removeClass("right-column-algoview-animation-comment")
+						.removeClass("horizontally-centered")
+						.addClass("fill");
+					slideContent.find("div.slide-content").addClass("fill");
+					slideContent.wrap("<div class=\"row-fluid fill\"><div class=\"span12 fill\"></div></div>");
+					node.children().wrapAll("<div style=\"height: 100%\"></div>");
+				}
+			});
 		}
 
 		function slide(){
@@ -243,7 +263,7 @@ BootstrapModule = function() {
 				sl.addClass("span");
 				sl.css("padding-left","0px");
 
-				node.children().wrapAll("<div></div>");
+				node.children().wrapAll("<div class=\"fill\"></div>");
 			});
 		}
 
@@ -262,6 +282,11 @@ BootstrapModule = function() {
 				$("#table-of-contents li .table-of-contents-up-link").each(function(clazz,a){
 					a = $(a);
 					a.html("<i class=\"icon-arrow-up\"></i>");
+				});
+
+				$("#table-of-contents li .table-of-contents-pdf-link").each(function(clazz,a){
+					a = $(a);
+					a.html("<i class=\"icon-print\"></i>");
 				});
 
 				var lis = $("#table-of-contents li");
@@ -349,7 +374,9 @@ BootstrapModule = function() {
 	}
 
 	this.onPresentationLoad = function() {
-		tables();
+		if(self.args && self.args.tables){
+			tables();
+		}
 		buttons();
 		svgs();
 		console.log("bootstrap loaded");
