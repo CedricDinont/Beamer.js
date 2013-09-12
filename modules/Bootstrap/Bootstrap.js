@@ -1,5 +1,8 @@
 BootstrapModule = function(presentation,args) {
 	this.presentation = presentation;
+	if(args === undefined){
+		args = {tables:true};
+	}
 	this.args = args;
 	var self = this;
 
