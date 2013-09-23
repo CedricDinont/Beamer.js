@@ -5,10 +5,10 @@ MathJaxModule = function() {
 		try {
 			var script = document.createElement("script");
 			script.type = "text/javascript";
-			script.src  = "/cdn/mathjax/MathJax.js?config=default";
+			script.src  = "/cdn/mathjax/latest/MathJax.js?config=default";
 
 			var config = 'MathJax.Hub.Config({' +
-					 'root:"/cdn/mathjax",' +
+					 'root:"/cdn/mathjax/latest",' +
 					 'jax: ["input/TeX","output/SVG"],' +
 					 'tex2jax: {inlineMath: [["$","$"]]}' +
 				       '});' +
