@@ -289,7 +289,7 @@ BootstrapModule = function(presentation,args) {
 
 				$("#table-of-contents li .table-of-contents-pdf-link").each(function(clazz,a){
 					a = $(a);
-					a.html("<i class=\"icon-print\"></i>");
+					a.html("<i class=\"icon-download-alt\"></i>");
 				});
 
 				var lis = $("#table-of-contents li");

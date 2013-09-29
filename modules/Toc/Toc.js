@@ -174,7 +174,6 @@ TocModule.prototype.createTableOfContents = function() {
 			parentPresentation  + 
 			"#toc' class='table-of-contents-up-link'></a></li>"
 		);
-	//	sectionsList.append("<li><a href='./pdf/"+parentPresentation+"/slidesToPrint.tar.gz' class='table-of-contents-pdf-link'></a></li>");
 	}
 	sectionsList.append("<li><a href='./download.php?presentation=" + this.presentation.completePresentationName + "' class='table-of-contents-pdf-link'></a></li>");
 
