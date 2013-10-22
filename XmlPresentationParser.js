@@ -163,10 +163,12 @@ XmlPresentationParser.prototype.createTitleSlide = function() {
 	var title = $('presentation > title', this.presentationData).text();
 	var subTitle = $('presentation > subtitle', this.presentationData).text();
 	var author = $('presentation > author', this.presentationData).text();
+  var date = $('presentation > date', this.presentationData).text();
 	
 	$('#presentation-title-div').text(title);
 	$('#presentation-subtitle-div').text(subTitle);
 	$('#presentation-author-div').text(author);
+  $('#presentation-date-div').text(date);
 	
 	var windowTitle = title;
 	if (subTitle != "") {

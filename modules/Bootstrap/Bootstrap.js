@@ -100,11 +100,21 @@ BootstrapModule = function(presentation,args) {
 			$(".presentation-author").each(function(clazz,node){
 				node = $(node);
 				var text = node.text();
-				node.html("<h5>"+text+"</h5>");
+				node.html("<h4>"+text+"</h4>");
 			});
 		}
 
 		presentationAuthor();
+    
+    function presentationDate(){
+			$(".presentation-date").each(function(clazz,node){
+				node = $(node);
+				var text = node.text();
+				node.html("<h5>"+text+"</h5>");
+			});
+		}
+
+		presentationDate();
 
 		function exercices(){
 			$(".block[data-type='exercice']").each(function(clazz,node){
