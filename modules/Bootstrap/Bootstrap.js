@@ -369,7 +369,7 @@ BootstrapModule = function(presentation,args) {
 			var bar = $("#progress-bar");
 			bar.removeAttr("id").addClass("bar");
 			bar.css("position","absolute").css("bottom","0px").css("height","10px");
-			bar.wrap("<div class=\"progress progress-striped active progress-danger\" />");
+			bar.wrap("<div class=\"progress active progress-danger\" />");
 
 			var left = $("#back-control");
 			left.html("<i class=\"icon-chevron-left\"></i>");
