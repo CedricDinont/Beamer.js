@@ -100,11 +100,21 @@ BootstrapModule = function(presentation,args) {
 			$(".presentation-author").each(function(clazz,node){
 				node = $(node);
 				var text = node.text();
-				node.html("<h5>"+text+"</h5>");
+				node.html("<h4>"+text+"</h4>");
 			});
 		}
 
 		presentationAuthor();
+    
+    function presentationDate(){
+			$(".presentation-date").each(function(clazz,node){
+				node = $(node);
+				var text = node.text();
+				node.html("<h5>"+text+"</h5>");
+			});
+		}
+
+		presentationDate();
 
 		function exercices(){
 			$(".block[data-type='exercice']").each(function(clazz,node){
@@ -359,7 +369,7 @@ BootstrapModule = function(presentation,args) {
 			var bar = $("#progress-bar");
 			bar.removeAttr("id").addClass("bar");
 			bar.css("position","absolute").css("bottom","0px").css("height","10px");
-			bar.wrap("<div class=\"progress progress-striped active progress-danger\" />");
+			bar.wrap("<div class=\"progress active progress-danger\" />");
 
 			var left = $("#back-control");
 			left.html("<i class=\"icon-chevron-left\"></i>");
