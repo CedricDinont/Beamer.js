@@ -549,7 +549,7 @@
             border-radius: 4px;
   }
   .slide-content pre.prettyprint {
-    margin-bottom: 35px;
+    margin-bottom: 0px;
   }
   .slide-content pre code {
     padding: 0;
@@ -2292,7 +2292,7 @@
             border-radius: 4px;
   }
   .slide-content pre.prettyprint {
-    margin-bottom: 24px;
+    margin-bottom: 0px;
   }
   .slide-content pre code {
     padding: 0;
@@ -4026,7 +4026,7 @@
             border-radius: 4px;
   }
   .slide-content pre.prettyprint {
-    margin-bottom: 18px;
+    margin-bottom: 0px;
   }
   .slide-content pre code {
     padding: 0;
@@ -5520,7 +5520,7 @@
             border-radius: 4px;
   }
   .slide-content pre.prettyprint {
-    margin-bottom: 12px;
+    margin-bottom: 0px;
   }
   .slide-content pre code {
     padding: 0;
