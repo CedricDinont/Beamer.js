@@ -35,6 +35,10 @@ XmlPresentationParser.prototype.parse = function(presentation, presentationDataT
 	reg = new RegExp("<sl-code>", "g");
 	reg2 = new RegExp("</sl-code>", "g");
 	presentationDataText = presentationDataText.replace(reg, '<pre class="prettyprint lang-sl linenums"><![CDATA[').replace(reg2, "]]></pre>");
+
+	reg = new RegExp("<java-code>", "g");
+	reg2 = new RegExp("</java-code>", "g");
+	presentationDataText = presentationDataText.replace(reg, '<pre class="prettyprint lang-java linenums"><![CDATA[').replace(reg2, "]]></pre>");
 	
 /*	var reg = new RegExp("<c-code>(.*)</c-code>", "g");
 	presentationDataText = presentationDataText.replace(reg, "<pre class='prettyprint lang-c linenums'><![CDATA[$1]]></pre>"); */
