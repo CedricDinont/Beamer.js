@@ -541,7 +541,7 @@
             border-radius: 4px;
   }
   pre.prettyprint {
-    margin-bottom: 22px;
+    margin-bottom: 0px;
   }
   pre code {
     padding: 0;
@@ -2276,7 +2276,7 @@
             border-radius: 4px;
   }
   pre.prettyprint {
-    margin-bottom: 16px;
+    margin-bottom: 0px;
   }
   pre code {
     padding: 0;
@@ -4002,7 +4002,7 @@
             border-radius: 4px;
   }
   pre.prettyprint {
-    margin-bottom: 15px;
+    margin-bottom: 0px;
   }
   pre code {
     padding: 0;
@@ -5485,7 +5485,7 @@
             border-radius: 4px;
   }
   pre.prettyprint {
-    margin-bottom: 12px;
+    margin-bottom: 0px;
   }
   pre code {
     padding: 0;

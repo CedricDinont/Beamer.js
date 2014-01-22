@@ -9,5 +9,6 @@ JadePresentationParser.prototype.getFileExtension = function() {
 JadePresentationParser.prototype.parse = function(presentation, presentationDataText) {
 	var fn = jade.compile(presentationDataText, {});
 	var xml = fn({});
+	console.log(xml);
 	return this.xmlPresentationParser.parse(presentation, xml);
 }

@@ -10,7 +10,7 @@ MathJaxModule = function() {
 			var config = 'MathJax.Hub.Config({' +
 					 'root:"/cdn/mathjax/latest",' +
 					 'jax: ["input/TeX","output/SVG"],' +
-					 'tex2jax: {inlineMath: [["$","$"]]}' +
+					 'tex2jax: {inlineMath: [["$","$"]], displayMath: [[\'$$\',\'$$\']], processEscapes: true}' +
 				       '});' +
 				       'MathJax.Hub.Startup.onload();';
 
