@@ -183,7 +183,7 @@ BootstrapModule = function(presentation,args) {
 			$(".section-with-title").each(function(clazz,node){
 				node = $(node);
 				if(node.children("div.right-column-algoview-animation-comment").length > 0){
-					node.css("padding-top","85px");
+					node.css("padding-top","100px");
 					var title = node.children("div.slide-title");
 					var text = title.text();
 				
@@ -209,7 +209,7 @@ BootstrapModule = function(presentation,args) {
 					node = $(node);
 
 					node.find("iframe").addClass("iframeFill");
-					node.css("padding-top","65px");
+					node.css("padding-top","100px");
 
 					var title = node.children("div.slide-title");
 					var text = title.text();
@@ -251,7 +251,7 @@ BootstrapModule = function(presentation,args) {
 		function slide(){
 			$(".section-with-title").each(function(clazz,node){
 				node = $(node);
-				node.css("padding-top","85px");
+				node.css("padding-top","100px");
 				var title = node.children("div.slide-title");
 				
 				var textAlign = title.css("text-align");
@@ -269,7 +269,7 @@ BootstrapModule = function(presentation,args) {
 
 			$(".section-without-title").each(function(clazz,node){
 				node = $(node);
-				node.css("padding-top","85px");
+				node.css("padding-top","60px");
 
 				var slideContent = node.children("div.horizontally-centered");
 				var sl = slideContent.children("div.slide-content");

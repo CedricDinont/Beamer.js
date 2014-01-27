@@ -5,11 +5,11 @@ MathJaxModule = function() {
 		try {
 			var script = document.createElement("script");
 			script.type = "text/javascript";
-			script.src  = "/cdn/mathjax/latest/MathJax.js?config=default";
+			script.src  = "/cdn/mathjax/latest/MathJax.js?config=TeX-AMS_HTML";
 
 			var config = 'MathJax.Hub.Config({' +
 					 'root:"/cdn/mathjax/latest",' +
-					 'jax: ["input/TeX","output/SVG"],' +
+					 // 'jax: ["input/TeX","output/HTML-CSS"],' +
 					 'tex2jax: {inlineMath: [["$","$"]], displayMath: [[\'$$\',\'$$\']], processEscapes: true}' +
 				       '});' +
 				       'MathJax.Hub.Startup.onload();';
