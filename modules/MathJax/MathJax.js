@@ -2,16 +2,33 @@ MathJaxModule = function() {
 
 	this.onPresentationLoad = function() {
                 
-                var cdn = (window.location.host == "localhost") ? "" : "//cdn.mathjax.org";
-                cdn += "/mathjax/latest";
+                console.log("Calling MathJax...");
+                
+                var cdn = "/mathjax/latest/";
+                var local = false;
+                
+                if (window.location.host == "localhost") {
+                
+                        jQuery.ajax({
+                                url: cdn,
+                                async: false,
+                                success: function() {
+                                        local = true;
+                                },
+                                error: function() {
+                                        console.log("Local MathJax not found; using public CDN instead");
+                                }
+                        });
+                        
+                }
 
-		console.log("Calling MathJax from " + cdn + "...");
+                cdn = ( (local) ? "" : "//cdn.mathjax.org" ) + cdn;
                 
 		try {
 			var script = document.createElement("script");
                         
 			script.type = "text/javascript";
-			script.src  = cdn + "/MathJax.js?config=TeX-AMS_HTML";
+			script.src  = cdn + "MathJax.js?config=TeX-AMS_HTML";
 
 			var config = 'MathJax.Hub.Config({' +
 					 'root:"' + cdn + '",' +
@@ -28,6 +45,7 @@ MathJaxModule = function() {
 			}
 
 			document.getElementsByTagName("head")[0].appendChild(script);
+
 			console.log("...Math successfully Jaxed");
 		} catch (e) {
 			console.log("...MathJax error!");
