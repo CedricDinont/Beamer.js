@@ -1,11 +1,15 @@
 MathJaxModule = function() {
 
 	this.onPresentationLoad = function() {
-		console.log("Calling MathJax...");
+                
+                var cdn = (window.location.host == "localhost") ? "" : "//cdn.mathjax.org";
+                cdn += "/mathjax/latest";
+
+		console.log("Calling MathJax from " + cdn + "...");
+                
 		try {
 			var script = document.createElement("script");
-                        //var cdn = "/cdn/mathjax/latest";
-                        var cdn = "//cdn.mathjax.org/mathjax/latest";
+                        
 			script.type = "text/javascript";
 			script.src  = cdn + "/MathJax.js?config=TeX-AMS_HTML";
 
@@ -24,9 +28,9 @@ MathJaxModule = function() {
 			}
 
 			document.getElementsByTagName("head")[0].appendChild(script);
-			console.log("Math jaxed.");
+			console.log("...Math successfully Jaxed");
 		} catch (e) {
-			console.log("Mathjax error.");
+			console.log("...MathJax error!");
 		}
 	}
 
