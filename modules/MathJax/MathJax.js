@@ -4,13 +4,16 @@ MathJaxModule = function() {
 		console.log("Calling MathJax...");
 		try {
 			var script = document.createElement("script");
+                        //var cdn = "/cdn/mathjax/latest";
+                        var cdn = "//cdn.mathjax.org/mathjax/latest";
 			script.type = "text/javascript";
-			script.src  = "/cdn/mathjax/latest/MathJax.js?config=TeX-AMS_HTML";
+			script.src  = cdn + "/MathJax.js?config=TeX-AMS_HTML";
 
 			var config = 'MathJax.Hub.Config({' +
-					 'root:"/cdn/mathjax/latest",' +
-					 // 'jax: ["input/TeX","output/HTML-CSS"],' +
-					 'tex2jax: {inlineMath: [["$","$"]], displayMath: [[\'$$\',\'$$\']], processEscapes: true}' +
+					 'root:"' + cdn + '",' +
+					 // 'jax: ["input/TeX","output/SVG"],' +
+					 'jax: ["output/SVG"],' + 
+					'tex2jax: {inlineMath: [["$","$"]], displayMath: [[\'$$\',\'$$\']], processEscapes: true}' +
 				       '});' +
 				       'MathJax.Hub.Startup.onload();';
 
